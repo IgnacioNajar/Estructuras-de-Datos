@@ -7,7 +7,7 @@ public class Pila {
     private Nodo raiz;
 
     Pila() {
-        raiz = null;
+        raiz = null; 
     }
 
     public void insertar(int valor) {
@@ -43,8 +43,11 @@ public class Pila {
         }
     }
 
+    public boolean estaVacia() {
+        return raiz == null;
+    }
+    
     public void imprimir() {
-
         Nodo recorrer = raiz;
         System.out.println("Listado de todos los elementos de la pila:");
 
@@ -79,6 +82,7 @@ public class Pila {
     public int getLastNode() {
         Nodo recorrer = raiz;
         int valorNodo = Integer.MAX_VALUE;
+        
         while (recorrer != null) {
             if (recorrer.siguiente == null) {
                 valorNodo = recorrer.info;

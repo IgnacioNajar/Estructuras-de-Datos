@@ -4,19 +4,15 @@ public class Cola {
         Nodo siguiente;
     }
 
-    private Nodo raiz, fondo;
+    private Nodo raiz, fin;
 
     Cola() {
         raiz = null;
-        fondo = null;
+        fin = null;
     }
 
     public boolean colaVacia() {
-        if (raiz == null) {
-            return true;
-        } else {
-            return false;
-        }
+        return raiz == null;
     }
 
     public void insertar(int valor) {
@@ -25,19 +21,20 @@ public class Cola {
 
         if (colaVacia()) {
             raiz = nodoNuevo;
-            fondo = nodoNuevo;
+            fin = nodoNuevo;
         } else {
-            fondo.siguiente = nodoNuevo;
-            fondo = nodoNuevo;
+            fin.siguiente = nodoNuevo;
+            fin = nodoNuevo;
         }
     }
 
     public int extraer() {
         if (!colaVacia()) {
             int informacion = raiz.info;
-            if (raiz == fondo) {
+
+            if (raiz == fin) {
                 raiz = null;
-                fondo = null;
+                fin = null;
             } else {
                 raiz = raiz.siguiente;
             }
@@ -51,6 +48,7 @@ public class Cola {
     public void imprimir() {
         Nodo recorrer = raiz;
         System.out.println("Listado de todos los elementos de la cola:");
+        
         while (recorrer != null) {
             System.out.print(recorrer.info + " -> ");
             recorrer = recorrer.siguiente;
