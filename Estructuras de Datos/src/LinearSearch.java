@@ -1,23 +1,26 @@
 public class LinearSearch {   
-    public int linearSearch(int[] arr, int key) {
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == key) {
-                return i;
+    // Método de búsqueda lineal para encontrar la posición de un elemento
+    public int busquedaLineal(int[] arreglo, int clave) {
+        for (int i = 0; i < arreglo.length; i++) {
+            if (arreglo[i] == clave) {
+                return i; // Devolvemos la posición del elemento encontrado
             }
         }
-        return -1;
+        return -1; // Si el elemento no se encuentra, devolvemos -1
     }
 
+    // Método principal para probar la búsqueda lineal
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int[] arreglo = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-        LinearSearch ls = new LinearSearch();
-        int index = ls.linearSearch(arr, 5);
+        LinearSearch busqueda = new LinearSearch();
+        int indice = busqueda.busquedaLineal(arreglo, 5);
         
-        if (index == -1) {
+        // Verificar si el elemento fue encontrado o no
+        if (indice == -1) {
             System.out.println("Elemento no encontrado en el arreglo.");
         } else {
-            System.out.println("Elemento encontrado en la posición: " + index);
+            System.out.println("Elemento encontrado en la posición: " + indice);
         }
     }
 }

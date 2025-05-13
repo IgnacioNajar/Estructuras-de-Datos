@@ -1,38 +1,37 @@
 class Recursividad6 {
-    static int[] array = {312, 614, 88, 22, 54};
+    static int[] arr = {312, 614, 88, 22, 54};
 
-    void ordenar(int[] array, int cantidad) {
+    void ordenar(int[] arr, int cantidad) {
         if (cantidad > 1) {
-            // Realizar una pasada de burbuja para ordenar los elementos
-            for (int f = 0; f < cantidad - 1; f++) {
-                if (array[f] > array[f + 1]) {
-                    // Intercambiar los elementos si están en el orden incorrecto
-                    int aux = array[f];
-                    array[f] = array[f + 1];
-                    array[f + 1] = aux;
+            for (int i = 0; i < cantidad - 1; i++) {
+
+                if (arr[i] > arr[i + 1]) {
+                    int aux = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = aux;
                 }
+
             }
-            // Llamada recursiva con una cantidad menor de elementos
-            ordenar(array, cantidad - 1);
+            ordenar(arr, cantidad - 1);
         }
     }
 
     void imprimir() {
-        // Imprimir los elementos del arreglo
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
         }
+
         System.out.println("\n");
     }
 
     public static void main(String[] ar) {
         Recursividad6 recursividad = new Recursividad6();
         System.out.println("Arreglo antes de ordenar:");
-        recursividad.imprimir();  // Imprime el arreglo original
+        recursividad.imprimir();
 
-        recursividad.ordenar(array, array.length);  // Llama a la función de ordenamiento recursiva
+        recursividad.ordenar(arr, arr.length);
 
         System.out.println("Arreglo después de ordenar:");
-        recursividad.imprimir();  // Imprime el arreglo después de ordenarlo
+        recursividad.imprimir();
     }
 }

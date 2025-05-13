@@ -22,6 +22,7 @@ Este repositorio contiene las prácticas realizadas durante el estudio de **Estr
 - `BubbleSort.java`: Ordenamiento burbuja.
 - `InsertionSort.java`: Ordenamiento por inserción.
 - `MergeSort.java`: Ordenamiento por mezcla (merge sort).
+- `QuickSort.java`: Ordenamiento rápido (quick sort).
 
 ### 🌐 Grafos
 

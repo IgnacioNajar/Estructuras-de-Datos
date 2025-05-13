@@ -1,51 +1,58 @@
 import java.util.*;
 
 public class BFSGraph {
-    private Map<Integer, List<Integer>> adj;
+    // Mapa de adyacencia para representar el grafo
+    private Map<Integer, List<Integer>> adyacencia;
 
+    // Constructor: inicializa el mapa de adyacencia
     public BFSGraph() {
-        adj = new HashMap<>();
+        adyacencia = new HashMap<>();
     }
 
-    public void addEdge(int u, int v) {
-        adj.putIfAbsent(u, new ArrayList<>());
-        adj.putIfAbsent(v, new ArrayList<>());
-        adj.get(u).add(v);
-        adj.get(v).add(u); 
+    // Método para agregar una arista (conexión) entre dos nodos
+    public void agregarArista(int u, int v) {
+        adyacencia.putIfAbsent(u, new ArrayList<>());
+        adyacencia.putIfAbsent(v, new ArrayList<>());
+        adyacencia.get(u).add(v);
+        adyacencia.get(v).add(u); // Como es un grafo no dirigido, se agrega en ambos sentidos
     }
 
-    public void bfs(int start) {
-        Set<Integer> visited = new HashSet<>();
-        Queue<Integer> queue = new LinkedList<>();
+    // Método que realiza el recorrido en anchura (BFS) desde un nodo inicial
+    public void recorridoBFS(int inicio) {
+        Set<Integer> visitados = new HashSet<>();
+        Queue<Integer> cola = new LinkedList<>();
 
-        visited.add(start);
-        queue.add(start);
+        visitados.add(inicio);
+        cola.add(inicio);
 
-        System.out.println("Recorrido BFS:");
+        System.out.println("Recorrido en anchura (BFS):");
 
-        while (!queue.isEmpty()) {
-            int node = queue.poll();
-            System.out.println("Visitando nodo: " + node);
+        while (!cola.isEmpty()) {
+            int nodo = cola.poll();
+            System.out.println("Visitando nodo: " + nodo);
 
-            for (int neighbor : adj.getOrDefault(node, new ArrayList<>())) {
-                if (!visited.contains(neighbor)) {
-                    visited.add(neighbor);
-                    queue.add(neighbor);
+            for (int vecino : adyacencia.getOrDefault(nodo, new ArrayList<>())) {
+                if (!visitados.contains(vecino)) {
+                    visitados.add(vecino);
+                    cola.add(vecino);
                 }
             }
         }
     }
 
+    // Método main para probar el grafo y el recorrido BFS
     public static void main(String[] args) {
-        BFSGraph graph = new BFSGraph();
+        BFSGraph grafo = new BFSGraph();
 
-        graph.addEdge(0, 1);
-        graph.addEdge(0, 2);
-        graph.addEdge(1, 3);
-        graph.addEdge(1, 4);
-        graph.addEdge(2, 5);
-        graph.addEdge(2, 6);
+        // Agregar aristas al grafo
+        grafo.agregarArista(0, 1);
+        grafo.agregarArista(0, 2);
+        grafo.agregarArista(1, 3);
+        grafo.agregarArista(1, 4);
+        grafo.agregarArista(2, 5);
+        grafo.agregarArista(2, 6);
 
-        graph.bfs(0);
+        // Ejecutar recorrido BFS desde el nodo 0
+        grafo.recorridoBFS(0);
     }
 }
