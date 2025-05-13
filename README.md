@@ -1,42 +1,53 @@
 # 🧠 Prácticas de Estructuras de Datos en Java
 
-Este repositorio contiene las prácticas realizadas durante el estudio de **Estructuras de Datos** con el lenguaje **Java**. Incluye implementaciones propias de listas, pilas, colas, algoritmos de ordenamiento y búsqueda, así como grafos con recorridos BFS y DFS, y ejercicios de recursividad.
+Este repositorio contiene las prácticas realizadas durante el estudio de Estructuras de Datos con el lenguaje Java. Incluye implementaciones propias de listas, pilas, colas, algoritmos de ordenamiento y búsqueda, así como grafos con recorridos BFS y DFS, árboles binarios y ejercicios de recursividad.
 
 ## 📁 Contenido actual
 
 ### 🔁 Estructuras Lineales
 
-- `ListaGenerica.java` / `ListaGenerica2.java`: Lista enlazada simple genérica.
-- `ListaGenericaOrdenada.java`: Lista enlazada ordenada automáticamente.
-- `ListaDoblementeEnlazada.java` / `ListaDoblementeEnlazada2.java`: Implementaciones de lista doblemente enlazada.
-- `Cola.java` / `Cola2.java` / `Cola3.java`: Tres versiones de implementación de cola (FIFO).
-- `Pila.java` / `Pila2.java`: Dos versiones de implementación de una pila (LIFO).
+- Cola.java / Cola2.java / Cola3.java: Tres versiones de implementación de colas (FIFO).
+- Pila.java / Pila2.java: Implementaciones de pilas (LIFO).
+- ListaGenerica.java / ListaGenerica2.java: Lista enlazada simple genérica.
+- ListaGenericaOrdenada.java: Lista enlazada ordenada automáticamente.
+- ListaDoblementeEnlazada.java / ListaDoblementeEnlazada2.java: Listas doblemente enlazadas.
 
 ### 🔍 Búsquedas
 
-- `BinarySearch.java`: Búsqueda binaria.
-- `LinearSearch.java`: Búsqueda lineal.
+- BinarySearch.java: Búsqueda binaria.
+- LinearSearch.java: Búsqueda lineal.
 
 ### 📊 Algoritmos de Ordenamiento
 
-- `BubbleSort.java`: Ordenamiento burbuja.
-- `InsertionSort.java`: Ordenamiento por inserción.
-- `MergeSort.java`: Ordenamiento por mezcla (merge sort).
-- `QuickSort.java`: Ordenamiento rápido (quick sort).
+- BubbleSort.java: Ordenamiento burbuja.
+- InsertionSort.java: Ordenamiento por inserción.
+- MergeSort.java: Ordenamiento por mezcla (merge sort).
+- QuickSort.java: Ordenamiento rápido (quick sort).
 
 ### 🌐 Grafos
 
-- `BFSGraph.java`: Recorrido de grafo con búsqueda en anchura (BFS).
-- `DFSGraph.java`: Recorrido de grafo con búsqueda en profundidad (DFS).
+- BFSGraph.java: Búsqueda en anchura (Breadth-First Search).
+- DFSGraph.java: Búsqueda en profundidad (Depth-First Search).
+
+### 🌲 Árboles
+
+- BinaryTree.java: Implementación de un árbol binario con recorrido e inversión.
+- ReverseBinaryTree.java: Árbol binario con inversión recursiva (modo espejo).
 
 ### 🧩 Recursividad
-- `Recursividad.java` / `Recursividad2.java` / `Recursividad3.java` / `Recursividad4.java` / `Recursividad5.java` / `Recursividad6.java`: Implementaciones con ejemplos de recursividad.
+
+- Recursividad.java / Recursividad2.java / Recursividad3.java / Recursividad4.java / Recursividad5.java / Recursividad6.java / Recursividad7.java / Recursividad8.java / Recursividad9.java: Ejemplos prácticos de recursividad.
 
 ### 🏢 Interfaces de Usuario
 
-- `Formulario.java`: Interfaz de usuario para simulación de **pilas**.
-- `Formulario2.java`: Interfaz de usuario para simulación de **colas**.
-- `Formulario3.java`: Interfaz de usuario para simulación de un **supermercado** utilizando listas de tipo cola.
+- Formulario.java: Interfaz gráfica para simulación de pilas.
+- Formulario2.java: Interfaz gráfica para simulación de colas.
+- Formulario3.java: Simulación de supermercado con múltiples cajas y colas.
+- Formulario4.java: Simulación de recorrido de laberinto con JLabel (recursividad visual).
+
+### ⚙️ Simulaciones
+
+- SimulacionCola.java: Simulación de atención en una cola tipo FIFO.
 
 ## ✅ Objetivo del repositorio
 
@@ -47,10 +58,9 @@ Este repositorio contiene las prácticas realizadas durante el estudio de **Estr
 
 ## 🛠️ Tecnologías
 
-- Lenguaje: **Java**
-- Control de versiones: **Git**
+- Lenguaje: Java
+- Control de versiones: Git
 
 ## 🚀 Cómo clonar el repositorio
 
-```bash
 git clone https://github.com/tu-usuario/estructuras-de-datos.git
