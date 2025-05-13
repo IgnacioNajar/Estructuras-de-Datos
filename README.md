@@ -1,6 +1,6 @@
 # 🧠 Prácticas de Estructuras de Datos en Java
 
-Este repositorio contiene las prácticas realizadas durante el estudio de **Estructuras de Datos** con el lenguaje **Java**. Incluye implementaciones propias de listas, pilas, colas, algoritmos de ordenamiento y búsqueda, así como grafos con recorridos BFS y DFS.
+Este repositorio contiene las prácticas realizadas durante el estudio de **Estructuras de Datos** con el lenguaje **Java**. Incluye implementaciones propias de listas, pilas, colas, algoritmos de ordenamiento y búsqueda, así como grafos con recorridos BFS y DFS, y ejercicios de recursividad.
 
 ## 📁 Contenido actual
 
@@ -27,6 +27,9 @@ Este repositorio contiene las prácticas realizadas durante el estudio de **Estr
 
 - `BFSGraph.java`: Recorrido de grafo con búsqueda en anchura (BFS).
 - `DFSGraph.java`: Recorrido de grafo con búsqueda en profundidad (DFS).
+
+### 🧩 Recursividad
+- `Recursividad.java` / `Recursividad2.java` / `Recursividad3.java` / `Recursividad4.java` / `Recursividad5.java` / `Recursividad6.java`: Implementaciones con ejemplos de recursividad.
 
 ### 🏢 Interfaces de Usuario
 
