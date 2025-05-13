@@ -9,8 +9,8 @@ Este repositorio contiene las prácticas realizadas durante el estudio de **Estr
 - `ListaGenerica.java` / `ListaGenerica2.java`: Lista enlazada simple genérica.
 - `ListaGenericaOrdenada.java`: Lista enlazada ordenada automáticamente.
 - `ListaDoblementeEnlazada.java` / `ListaDoblementeEnlazada2.java`: Implementaciones de lista doblemente enlazada.
-- `Cola.java` / `Cola2.java`: Dos versiones de implementación de cola (FIFO).
-- `Pila.java`: Implementación de una pila (LIFO).
+- `Cola.java` / `Cola2.java` / `Cola3.java`: Tres versiones de implementación de cola (FIFO).
+- `Pila.java` / `Pila2.java`: Dos versiones de implementación de una pila (LIFO).
 
 ### 🔍 Búsquedas
 
@@ -27,6 +27,12 @@ Este repositorio contiene las prácticas realizadas durante el estudio de **Estr
 
 - `BFSGraph.java`: Recorrido de grafo con búsqueda en anchura (BFS).
 - `DFSGraph.java`: Recorrido de grafo con búsqueda en profundidad (DFS).
+
+### 🏢 Interfaces de Usuario
+
+- `Formulario.java`: Interfaz de usuario para simulación de **pilas**.
+- `Formulario2.java`: Interfaz de usuario para simulación de **colas**.
+- `Formulario3.java`: Interfaz de usuario para simulación de un **supermercado** utilizando listas de tipo cola.
 
 ## ✅ Objetivo del repositorio
 
