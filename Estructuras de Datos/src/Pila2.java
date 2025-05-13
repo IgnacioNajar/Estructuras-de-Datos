@@ -1,34 +1,33 @@
 public class Pila2 {
     class Nodo {
         char simbolo;
-        Nodo sig;
+        Nodo siguiente;
     }
+
     private Nodo raiz;
 
     Pila2 () {
-        raiz=null;
+        raiz = null;
     }
 
     public void insertar(char valor) {
-        Nodo nuevo;
-        nuevo = new Nodo();
-        nuevo.simbolo = valor;
+        Nodo nodoNuevo = new Nodo();
+        nodoNuevo.simbolo = valor;
 
-        if (raiz==null) {
-            nuevo.sig = null;
-            raiz = nuevo;
+        if (estaVacia()) {
+            nodoNuevo.siguiente = null;
+            raiz = nodoNuevo;
         }
         else {
-            nuevo.sig = raiz;
-            raiz = nuevo;
+            nodoNuevo.siguiente = raiz;
+            raiz = nodoNuevo;
         }
     }
 
     public char extraer () {
-        if (raiz!=null)
-        {
+        if (!estaVacia()) {
             char informacion = raiz.simbolo;
-            raiz = raiz.sig;
+            raiz = raiz.siguiente;
             return informacion;
         } else {
             return Character.MAX_VALUE;
@@ -36,10 +35,6 @@ public class Pila2 {
     }
 
     public boolean estaVacia() {
-        if (raiz==null) {
-            return true;
-        } else {
-            return false;
-        }
+        return raiz == null;
     }
 }

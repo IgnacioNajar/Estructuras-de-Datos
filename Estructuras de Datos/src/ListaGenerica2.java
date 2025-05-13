@@ -5,69 +5,173 @@ public class ListaGenerica2 {
     }
 
     private Nodo raiz;
+    private int tamaño;
 
     ListaGenerica2() {
         raiz = null;
+        tamaño = 0;
     }
 
-    public boolean listaVacia() {
+    public boolean estaVacia() {
         return raiz == null;
     }
 
-    public int getCantidad() {
-        int cantidad = 0;
-        Nodo recorrer = raiz;
-
-        while (recorrer != null) {
-            cantidad++;
-            recorrer = recorrer.siguiente;
-        }
-
-        return cantidad;
+    public int getTamaño() {
+        return tamaño;
     }
 
-    public void insertar(int posicion, int valor) {
-        if (posicion < 1 || posicion > getCantidad() + 1) {
-            System.out.println("Posición inválida para insertar.");
-            return;
-        }
-
+    public Nodo creacionDeNodo(int valor) {
         Nodo nodoNuevo = new Nodo();
         nodoNuevo.info = valor;
 
-        if (posicion == 1) {
-            nodoNuevo.siguiente = raiz;
-            raiz = nodoNuevo;
+        return nodoNuevo;
+    }
 
-        } else if (posicion == getCantidad() + 1) {
+    public void insertarAlPrincipio(int valor) {
+        Nodo nodoNuevo = creacionDeNodo(valor);
+
+        nodoNuevo.siguiente = raiz;
+        raiz = nodoNuevo;
+        tamaño++;
+    }
+
+    public void insertarAlFinal(int valor) {
+        if (estaVacia()) {
+            insertarAlPrincipio(valor);
+        } else {
+            Nodo nodoNuevo = creacionDeNodo(valor);
             Nodo recorrer = raiz;
-            
+
             while (recorrer.siguiente != null) {
                 recorrer = recorrer.siguiente;
             }
 
             recorrer.siguiente = nodoNuevo;
-            nodoNuevo.siguiente = null;
+            tamaño++;
+        }
+    }
+
+    public void insertarSegundaPosicion(int valor) {
+        if (estaVacia()) {
+            System.out.println("La lista se encuentra vacía, no se puede insertar en la segunda posición.");
+            return;
+        }
+
+        Nodo nodoNuevo = creacionDeNodo(valor);
+        
+        if (tamaño == 1) {
+            raiz.siguiente = nodoNuevo;
+        } else {
+            nodoNuevo.siguiente = raiz.siguiente;
+            raiz.siguiente = nodoNuevo;
+        }
+        tamaño++;
+    }
+
+    public void insertarPenultimaPosicion(int valor) {
+        if (tamaño < 2) {
+            System.out.println("La lista debe tener al menos dos nodos para insertar en la penúltima posición.");
+            return;
+        }
+
+        Nodo nodoNuevo = creacionDeNodo(valor);
+        Nodo recorrer = raiz;
+
+        while (recorrer.siguiente.siguiente != null) {
+            recorrer = recorrer.siguiente;
+        }
+
+        nodoNuevo.siguiente = recorrer.siguiente;
+        recorrer.siguiente = nodoNuevo;
+        tamaño++;
+    }
+
+    public void borrarPrimerNodo() {
+        if (estaVacia()) {
+            System.out.println("La lista se encuentra vacía, no se puede borrar.");
+            return;
+        }
+
+        if (tamaño == 1) {
+            raiz = null;
+        } else {
+            raiz = raiz.siguiente;
+        }
+
+        tamaño--;
+    }
+
+    public void borrarSegundoNodo() {
+        if (tamaño < 2) {
+            System.out.println("La lista debe tener al menos dos nodos para borrar la segunda posición.");
+            return;
+        }
+
+        if (tamaño == 2) {
+            raiz.siguiente = null;
+        } else {
+            raiz.siguiente = raiz.siguiente.siguiente;
+        }
+
+        tamaño--;
+    }
+
+    public void borrarUltimoNodo() {
+        if (estaVacia()) {
+            System.out.println("La lista se encuentra vacía, no se puede borrar el ultimo nodo.");
+            return;
+        }
+
+        if (tamaño == 1) {
+            raiz = null;
         } else {
             Nodo recorrer = raiz;
-            for (int i = 1; i < posicion - 1; i++) {
+
+            while (recorrer.siguiente.siguiente != null) {
                 recorrer = recorrer.siguiente;
             }
 
-            nodoNuevo.siguiente = recorrer.siguiente;
-            recorrer.siguiente = nodoNuevo;
+            recorrer.siguiente = null;
+        }
+        
+        tamaño--;
+    }
+
+    public void borrarNodoMayorInformacion() {
+        Nodo actual = raiz.siguiente;
+        int mayor = raiz.info;
+        
+        while (actual != null) {
+            if (actual.info > mayor) {
+                mayor = actual.info;
+            }
+
+            actual = actual.siguiente;
+        }
+
+        if (raiz.info == mayor) {
+            borrarPrimerNodo();
+            return;
+        }
+
+        Nodo nodoAnterior = raiz;
+        Nodo nodoSiguiente = nodoAnterior.siguiente;
+
+        while (nodoSiguiente != null) {
+            if (nodoSiguiente.info == mayor) {
+                nodoAnterior.siguiente = nodoSiguiente.siguiente;
+                tamaño--;
+                return;
+            }
+            
+            nodoAnterior = nodoSiguiente;
+            nodoSiguiente = nodoSiguiente.siguiente;
         }
     }
 
     public void imprimir() {
-        if (listaVacia()) {
-            System.out.println("No se puede imprimir. La lista está vacía.");
-            return;
-        }
-        
         Nodo recorrer = raiz;
-        System.out.println("Listado de elementos de la lista:");
-
+        System.out.println("Listado de todos los elementos de la lista:");
         while (recorrer != null) {
             System.out.print(recorrer.info + " -> ");
             recorrer = recorrer.siguiente;
@@ -75,131 +179,33 @@ public class ListaGenerica2 {
         System.out.println("null\n");
     }
 
-    public void insertarAlPrincipio(int valor) {
-        insertar(1, valor);
-    }
-
-    public void insertarAlUltimo(int valor) {
-        int posicion = getCantidad() + 1;
-        insertar(posicion, valor);
-    }
-
-    public void insertarSegundaPosicion(int valor) {
-        if (!listaVacia()) {
-            insertar(2, valor);
-        } else {
-            System.out.println("Lista vacía. No se pudo insertar el nodo en la segunda posición.");
-        }
-    }
-    
-    public void insertarPenultimaPosicion(int valor) {
-        if (getCantidad() < 2) {
-            System.out.println("No se puede insertar en la penultima posicion");
-        } else {
-            int posicion = getCantidad();
-            insertar(posicion, valor);
-        }
-    }
-
-    public void borrar(int posicion) {
-        if (posicion < 1 || posicion > getCantidad()) {
-            System.out.println("Posición inválida para borrar.");
-            return;
-        }
-
-        if (posicion == 1) {
-            raiz = raiz.siguiente;
-        } else {
-            Nodo recorrer = raiz;
-
-            for (int i = 1; i < posicion - 1; i++) {
-                recorrer = recorrer.siguiente;
-            }
-            recorrer.siguiente = recorrer.siguiente.siguiente;
-        }
-    }
-
-    public void borrarPrimerNodo() {
-        if (listaVacia()) {
-            System.out.print(" No hay primer elemento para borrar.");
-        } else {
-            borrar(1);
-        }
-    }
-
-    public void borrarSegundoNodo() {
-        if (getCantidad() < 2) {
-            System.out.print(" No hay segundo nodo para borrar.");
-        } else {
-            borrar(2);
-        }
-    }
-
-    public void borrarUltimoNodo() {
-        if (listaVacia()) {
-            System.out.print(" No hay elementos para borrar.");
-        } else {
-            int posicion = getCantidad();
-            borrar(posicion);
-        }
-    }
-
-    public void borrarMayor() {
-        if (listaVacia()) {
-            System.out.println("La lista está vacía. No se puede borrar el mayor");
-            return;
-        }
-
-        int mayor = raiz.info;
-        int pos = 1;
-        int i = 1;
-
-        Nodo recorrer = raiz;
-
-        while (recorrer != null) {
-            if (recorrer.info > mayor) {
-                mayor = recorrer.info;
-                pos = i;
-            }
-            recorrer = recorrer.siguiente;
-            i++;
-        }
-
-        borrar(pos);
-    }
-
     public static void main(String[] args) {
-        ListaGenerica2 listaGenerica2 = new ListaGenerica2();
+        ListaGenerica2 lista = new ListaGenerica2();
 
-        for (int i = 1; i <= 10; i++) {
-            int resultado = i * 10;
-            listaGenerica2.insertar(i, resultado);
-        }
+        lista.insertarAlPrincipio(10);
+        lista.insertarAlFinal(20);
+        lista.insertarAlFinal(30);
+        lista.insertarAlFinal(25);
+        lista.insertarAlFinal(15);
+        lista.insertarAlPrincipio(50);
+        lista.imprimir();
 
-        listaGenerica2.imprimir();
-        listaGenerica2.insertarAlPrincipio(333);
-        listaGenerica2.imprimir();
-        listaGenerica2.insertarAlUltimo(999);
-        listaGenerica2.imprimir();
-        listaGenerica2.insertarSegundaPosicion(666);
-        listaGenerica2.imprimir();
-        listaGenerica2.insertarPenultimaPosicion(555);
-        listaGenerica2.imprimir();
-        listaGenerica2.borrarPrimerNodo();
-        listaGenerica2.imprimir();
-        listaGenerica2.borrarSegundoNodo();
-        listaGenerica2.imprimir();
-        listaGenerica2.borrarUltimoNodo();
-        listaGenerica2.imprimir();
-        listaGenerica2.borrarMayor();
-        listaGenerica2.imprimir();
+        lista.insertarSegundaPosicion(99);
+        lista.imprimir();
 
-        while (!listaGenerica2.listaVacia()) {
-            listaGenerica2.borrar(1);
-        }        
+        lista.insertarPenultimaPosicion(88);
+        lista.imprimir();
 
-        listaGenerica2.imprimir();
-        listaGenerica2.insertarSegundaPosicion(2);
+        lista.borrarPrimerNodo();
+        lista.imprimir();
 
+        lista.borrarSegundoNodo();
+        lista.imprimir();
+
+        lista.borrarUltimoNodo();
+        lista.imprimir();
+
+        lista.borrarNodoMayorInformacion();
+        lista.imprimir();
     }
 }

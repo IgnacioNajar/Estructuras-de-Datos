@@ -67,7 +67,7 @@ public class Formulario2 extends JFrame {
         int estado = 0;
         int llegada = 2 + (int) (Math.random() * 2);
         int salida = -1;
-        int cantAtendidas = 0;
+        int cantidadPersonasAtendidas = 0;
         Cola3 cola = new Cola3();
 
         for (int minuto = 0; minuto < 600; minuto++) {
@@ -83,8 +83,8 @@ public class Formulario2 extends JFrame {
 
             if (salida == minuto) {
                 estado = 0;
-                cantAtendidas++;
-                if (!cola.vacia()) {
+                cantidadPersonasAtendidas++;
+                if (!cola.estaVacia()) {
                     cola.extraer();
                     estado = 1;
                     salida = minuto + 2 + (int) (Math.random() * 3);
@@ -92,10 +92,10 @@ public class Formulario2 extends JFrame {
             }
         }
 
-        l1.setText("Atendidos: " + cantAtendidas);
+        l1.setText("Atendidos: " + cantidadPersonasAtendidas);
         l2.setText("En cola: " + cola.cantidad());
 
-        if (!cola.vacia()) {
+        if (!cola.estaVacia()) {
             l3.setText("Minuto llegada: " + cola.extraer());
         } else {
             l3.setText("Minuto llegada: -");

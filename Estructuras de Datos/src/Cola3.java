@@ -1,46 +1,43 @@
 public class Cola3 {
-    
     class Nodo {
         int info;
-        Nodo sig;
+        Nodo siguiente;
     }
 
-    Nodo raiz, fondo;
+    private Nodo raiz, fin;
 
     Cola3() {
         raiz = null;
-        fondo = null;
+        fin = null;
     }
 
-    boolean vacia() {
-        if (raiz == null)
-            return true;
-        else
-            return false;
+    public boolean estaVacia() {
+        return raiz == null;
     }
 
-    void insertar(int info) {
+    public void insertar(int valor) {
         Nodo nuevo = new Nodo();
-        nuevo.info = info;
-        nuevo.sig = null;
+        nuevo.info = valor;
+        nuevo.siguiente = null;
 
-        if (vacia()) {
+        if (estaVacia()) {
             raiz = nuevo;
-            fondo = nuevo;
+            fin = nuevo;
         } else {
-            fondo.sig = nuevo;
-            fondo = nuevo;
+            fin.siguiente = nuevo;
+            fin = nuevo;
         }
     }
 
-    int extraer() {
-        if (!vacia()) {
+    public int extraer() {
+        if (!estaVacia()) {
             int informacion = raiz.info;
-            if (raiz == fondo) {
+
+            if (raiz == fin) {
                 raiz = null;
-                fondo = null;
+                fin = null;
             } else {
-                raiz = raiz.sig;
+                raiz = raiz.siguiente;
             }
             return informacion;
         } else {
@@ -49,22 +46,23 @@ public class Cola3 {
     }
 
     public void imprimir() {
-        Nodo reco = raiz;
+        Nodo recorrer = raiz;
         System.out.println("Listado de todos los elementos de la cola:");
-        while (reco != null) {
-            System.out.print(reco.info + "-");
-            reco = reco.sig;
+        while (recorrer != null) {
+            System.out.print(recorrer.info + " -> ");
+            recorrer = recorrer.siguiente;
         }
-        System.out.println();
+        System.out.println("\n");
     }
 
     public int cantidad() {
-        int cant = 0;
-        Nodo reco = raiz;
-        while (reco != null) {
-            cant++;
-            reco = reco.sig;
+        Nodo recorrer = raiz;
+        int cantidad = 0;
+
+        while (recorrer != null) {
+            cantidad++;
+            recorrer = recorrer.siguiente;
         }
-        return cant;
+        return cantidad;
     }
 }

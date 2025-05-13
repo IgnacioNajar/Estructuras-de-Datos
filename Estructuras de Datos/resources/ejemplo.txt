@@ -1,4 +1,0 @@
-List<String> usuarios = new List<>();
-
-usuarios.add("Ignacio");
-usarios.remove(0);
