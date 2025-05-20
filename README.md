@@ -1,4 +1,4 @@
-# 🧠 Prácticas de Estructuras de Datos en Java
+# 🧠 Práctica de Estructuras de Datos en Java
 
 Este repositorio contiene las prácticas realizadas durante el estudio de **Estructuras de Datos** con el lenguaje **Java**. Incluye implementaciones propias de listas, pilas, colas, algoritmos de ordenamiento y búsqueda, así como grafos con recorridos BFS y DFS, árboles binarios y ejercicios de recursividad.
 
