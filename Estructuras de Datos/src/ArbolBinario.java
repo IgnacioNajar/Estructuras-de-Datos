@@ -198,7 +198,7 @@ public class ArbolBinario {
 		arbol.invertir();
 
 		// Recorridos luego de invertir
-		System.out.println("Recorrido Inorden INVERTIDO:");
+		System.out.println("Recorrido Entre-orden INVERTIDO:");
 		arbol.imprimirEntre();
 	}
 }
