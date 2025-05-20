@@ -1,5 +1,3 @@
-package clase9;
-
 public class ArbolBinario {
 
 	// Clase interna Nodo (no estática)
