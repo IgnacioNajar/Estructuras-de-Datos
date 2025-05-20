@@ -31,8 +31,8 @@ Este repositorio contiene las prácticas realizadas durante el estudio de **Estr
 
 ### 🌲 **Árboles**
 
-- `BinaryTree.java`: Implementación de un **árbol binario** con recorrido e inversión.
-- `ReverseBinaryTree.java`: Árbol binario con inversión recursiva (**modo espejo**).
+- `ArbolBinario.java`: Implementación de un **árbol binario** con recorrido e inversión.
+- `ReverseBinaryTree.java`: Árbol binario con inversión recursiva con salida gráfica (**modo espejo**).
 
 ### 🧩 **Recursividad**
 
