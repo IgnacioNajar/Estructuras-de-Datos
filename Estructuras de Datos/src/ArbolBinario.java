@@ -1,12 +1,15 @@
 public class ArbolBinario {
 
-	// Clase interna Nodo (no estática)
 	class Nodo {
 		int info;
-		Nodo izq, der;
+		Nodo izquierda, derecha;
 	}
 
 	private Nodo raiz;
+
+    public ArbolBinario() {
+        raiz = null;
+    }
 
 	// Método para insertar un valor en el árbol
 	public void insertar(int info) {
@@ -28,16 +31,16 @@ public class ArbolBinario {
 				System.out.println("Valor duplicado: " + info);
 				return;
 			} else if (info < actual.info) {
-				actual = actual.izq;
+				actual = actual.izquierda;
 			} else {
-				actual = actual.der;
+				actual = actual.derecha;
 			}
 		}
 
 		if (info < anterior.info) {
-			anterior.izq = nuevo;
+			anterior.izquierda = nuevo;
 		} else {
-			anterior.der = nuevo;
+			anterior.derecha = nuevo;
 		}
 	}
 
@@ -45,8 +48,8 @@ public class ArbolBinario {
 	private void imprimirPre(Nodo nodo) {
 		if (nodo != null) {
 			System.out.print(nodo.info + " ");
-			imprimirPre(nodo.izq);
-			imprimirPre(nodo.der);
+			imprimirPre(nodo.izquierda);
+			imprimirPre(nodo.derecha);
 		}
 	}
 
@@ -55,12 +58,12 @@ public class ArbolBinario {
 		System.out.println();
 	}
 
-	// Recorrido inorden
+	// Recorrido entreorden
 	private void imprimirEntre(Nodo nodo) {
 		if (nodo != null) {
-			imprimirEntre(nodo.izq);
+			imprimirEntre(nodo.izquierda);
 			System.out.print(nodo.info + " ");
-			imprimirEntre(nodo.der);
+			imprimirEntre(nodo.derecha);
 		}
 	}
 
@@ -72,8 +75,8 @@ public class ArbolBinario {
 	// Recorrido postorden
 	private void imprimirPost(Nodo nodo) {
 		if (nodo != null) {
-			imprimirPost(nodo.izq);
-			imprimirPost(nodo.der);
+			imprimirPost(nodo.izquierda);
+			imprimirPost(nodo.derecha);
 			System.out.print(nodo.info + " ");
 		}
 	}
@@ -91,9 +94,9 @@ public class ArbolBinario {
 			if (x == actual.info) {
 				return true;
 			} else if (x < actual.info) {
-				actual = actual.izq;
+				actual = actual.izquierda;
 			} else {
-				actual = actual.der;
+				actual = actual.derecha;
 			}
 		}
 
@@ -103,7 +106,7 @@ public class ArbolBinario {
 	// Contar cantidad de nodos
 	private int contarNodos(Nodo nodo) {
 		if (nodo == null) return 0;
-		return 1 + contarNodos(nodo.izq) + contarNodos(nodo.der);
+		return 1 + contarNodos(nodo.izquierda) + contarNodos(nodo.derecha);
 	}
 
 	public int contarNodos() {
@@ -113,8 +116,8 @@ public class ArbolBinario {
 	// Calcular altura del árbol
 	private int altura(Nodo nodo) {
 		if (nodo == null) return 0;
-		int altIzq = altura(nodo.izq);
-		int altDer = altura(nodo.der);
+		int altIzq = altura(nodo.izquierda);
+		int altDer = altura(nodo.derecha);
 		return 1 + Math.max(altIzq, altDer);
 	}
 
@@ -126,12 +129,12 @@ public class ArbolBinario {
 	private boolean esBalanceado(Nodo nodo) {
 		if (nodo == null) return true;
 
-		int altIzq = altura(nodo.izq);
-		int altDer = altura(nodo.der);
+		int altIzq = altura(nodo.izquierda);
+		int altDer = altura(nodo.derecha);
 
 		if (Math.abs(altIzq - altDer) > 1) return false;
 
-		return esBalanceado(nodo.izq) && esBalanceado(nodo.der);
+		return esBalanceado(nodo.izquierda) && esBalanceado(nodo.derecha);
 	}
 
 	public boolean esBalanceado() {
@@ -142,12 +145,12 @@ public class ArbolBinario {
 	private void invertir(Nodo nodo) {
 		if (nodo != null) {
 			// Intercambiar hijos
-			Nodo temp = nodo.izq;
-			nodo.izq = nodo.der;
-			nodo.der = temp;
+			Nodo temp = nodo.izquierda;
+			nodo.izquierda = nodo.derecha;
+			nodo.derecha = temp;
 
-			invertir(nodo.izq);
-			invertir(nodo.der);
+			invertir(nodo.izquierda);
+			invertir(nodo.derecha);
 		}
 	}
 
@@ -172,13 +175,13 @@ public class ArbolBinario {
 		arbol.insertar(700); // duplicado
 
 		// Recorridos originales
-		System.out.println("Recorrido Inorden ORIGINAL:");
+		System.out.println("Recorrido Entre-orden ORIGINAL:");
 		arbol.imprimirEntre();
 
-		System.out.println("Recorrido Preorden:");
+		System.out.println("Recorrido Pre-orden:");
 		arbol.imprimirPre();
 
-		System.out.println("Recorrido Postorden:");
+		System.out.println("Recorrido Post-orden:");
 		arbol.imprimirPost();
 
 		// Búsqueda
