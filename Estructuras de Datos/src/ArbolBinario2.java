@@ -7,7 +7,7 @@ public class ArbolBinario2 {
     }
 
     private Nodo raiz;
-    private int cantidad;     // Auxiliar para contar nodos
+    private int cantidad;  // Auxiliar para contar nodos
     private int altura;   // Auxiliar para calcular altura
 
     // Inserta un nodoNuevo nodo al árbol
@@ -19,12 +19,12 @@ public class ArbolBinario2 {
             raiz = nodoNuevo;
         } else {
             Nodo anterior = null;
-            Nodo reco = raiz;
+            Nodo recorrer = raiz;
 
             // Buscar la posición correcta para insertar
-            while (reco != null) {
-                anterior = reco;
-                reco = (valor < reco.info) ? reco.izquierdo : reco.derecho;
+            while (recorrer != null) {
+                anterior = recorrer;
+                recorrer = (valor < recorrer.info) ? recorrer.izquierdo : recorrer.derecho;
             }
 
             // Insertar en la posición encontrada
