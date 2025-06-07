@@ -23,18 +23,11 @@ public class Examen {
 			raiz = nodoNuevo;
 		} else {
 			Nodo anterior = null;
-			Nodo recorrer = raiz;
+			Nodo reco = raiz;
 
-			while (recorrer != null) {
-				anterior = recorrer;
-
-				recorrer = (info < recorrer.info) ? recorrer.izq : recorrer.der;
-				/*
-				if (info < recorrer.info) {
-					recorrer = recorrer.izq;
-				} else {
-					recorrer = recorrer.der;
-				} */
+			while (reco != null) {
+				anterior = reco;
+				reco = (info < reco.info) ? reco.izq : reco.der;
 			}
 
 			if (info < anterior.info) {
@@ -49,7 +42,7 @@ public class Examen {
 	public void menorValorDerecha() {
 		// COMPLETAR ESTE METODO
 		if (raiz == null || raiz.der == null) {
-			System.out.println("No existe el subarbol derecho");
+			System.out.println("No existe el subarbol derecho o el arbol está vacío");
 			return;
 		}
 
@@ -65,7 +58,7 @@ public class Examen {
 	public void mayorValorIzquierda() {
 		// COMPLETAR ESTE METODO
 		if (raiz == null || raiz.izq == null) {
-			System.out.println("No existe subarbol izquierdo");
+			System.out.println("No existe subarbol izquierdo o el arbol está vacío");
 			return;
 		}
 
@@ -79,6 +72,10 @@ public class Examen {
 
 	// 4 => Buscar un valor e informar el nivel
 	public void existeValorEnNivel(int info) {
+		if (raiz == null) {
+			System.out.println("El arbol está vacío");
+			return;
+		}
 		// COMPLETAR ESTE METODO
 		Nodo reco = raiz;
 		int nivel = 0;
@@ -86,7 +83,7 @@ public class Examen {
 		while (reco != null) {
 			nivel++;
 			if (info == reco.info) {
-				System.out.println("El nodo con el valor " + info + " existe en el nivel: " + nivel);
+				System.out.println("El nodo con el valor (" + info + ") existe en el nivel " + nivel);
 				return;
 			}
 				
@@ -97,7 +94,7 @@ public class Examen {
 			}
 		}
 
-		System.out.println("El nodo con el valor " + info + " no existe");
+		System.out.println("El nodo con el valor (" + info + ") no existe");
 		
 	}
 
