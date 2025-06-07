@@ -65,4 +65,4 @@ Este repositorio contiene las prácticas realizadas durante el estudio de **Estr
 ## 🚀 **Cómo clonar el repositorio**
 
 ```bash
-git clone https://github.com/tu-usuario/estructuras-de-datos.git
+git clone https://github.com/IgnacioNajar/Estructuras-de-Datos
