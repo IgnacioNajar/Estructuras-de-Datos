@@ -72,11 +72,12 @@ public class Examen {
 
 	// 4 => Buscar un valor e informar el nivel
 	public void existeValorEnNivel(int info) {
+		// COMPLETAR ESTE METODO
 		if (raiz == null) {
 			System.out.println("El arbol está vacío");
 			return;
 		}
-		// COMPLETAR ESTE METODO
+
 		Nodo reco = raiz;
 		int nivel = 0;
 
@@ -98,7 +99,6 @@ public class Examen {
 		
 	}
 
-
     // 5 => Calcular el total de nodos hoja del arbol
     private void totalNodosHoja(Nodo reco) {	
         // COMPLETAR ESTE METODO
@@ -113,10 +113,10 @@ public class Examen {
 	}
 
     public int totalNodosHoja() {
+	    // COMPLETAR ESTE METODO		
         cant = 0;
 		totalNodosHoja(raiz);
 		return cant;
-	    // COMPLETAR ESTE METODO		
 	}
 
 	private void imprimirEntre(Nodo reco) {
