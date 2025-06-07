@@ -95,8 +95,7 @@ public class Examen {
 			}
 		}
 
-		System.out.println("El nodo con el valor (" + info + ") no existe");
-		
+		System.out.println("El nodo con el valor (" + info + ") no existe");	
 	}
 
     // 5 => Calcular el total de nodos hoja del arbol
